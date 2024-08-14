@@ -1,0 +1,132 @@
+<div>
+  <div>
+    <h1>
+      Book #<%= @the_user.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/users">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user/<%= @the_user.id %>">
+          Delete user
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Username
+      </dt>
+      <dd>
+        <%= @the_user.username %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_user.first_name %> <%= @the_user.last_name %>
+      </dd>
+
+      <dt>
+        Bio
+      </dt>
+      <dd>
+        <%= @the_user.bio %>
+      </dd>
+
+      <dt>
+        Avatar
+      </dt>
+      <dd>
+        <img src="<%= @the_user.avatar_url %>" width="100px" height="100px" object-fit= "cover">
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user
+    </h2>
+
+    <form action="/modify_user/<%= @the_user.id %>"  method="post" >
+      <div>
+        <label for="username_box">
+          Username
+        </label>
+
+        <input type="text" id="username_box" name="query_username" value="<%= @the_user.username %>">
+      </div>
+
+      <div>
+        <label for="first_name_box">
+          First Name
+        </label>
+
+        <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_user.first_name %>">
+      </div>
+
+      <div>
+        <label for="last_name_box">
+          Last Name
+        </label>
+
+        <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_user.last_name %>">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio"><%= @the_user.bio %></textarea>
+      </div>
+
+      <div>
+        <label for="email_box">
+          Email
+        </label>
+
+        <textarea id="email_box" name="query_email"><%= @the_user.email %></textarea>
+      </div>
+
+      <div>
+        <label for="avatar_url_box">
+          Avatar url
+        </label>
+
+        <input type="text" id="avatar_url_box" name="query_avatar_url" value="<%= @the_user.avatar_url %>">
+      </div>
+
+      <button>
+        Update user
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
