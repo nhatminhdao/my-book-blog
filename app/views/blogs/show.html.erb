@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Blog #<%= @the_blog.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/blogs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_blog/<%= @the_blog.id %>">
+          Delete blog
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Blogger
+      </dt>
+      <dd>
+        <%= @the_blog.blogger_id %>
+      </dd>
+
+      <dt>
+        Book
+      </dt>
+      <dd>
+        <%= @the_blog.book_id %>
+      </dd>
+
+      <dt>
+        Content
+      </dt>
+      <dd>
+        <%= @the_blog.content %>
+      </dd>
+
+      <dt>
+        Privacy status
+      </dt>
+      <dd>
+        <%= @the_blog.privacy_status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_blog.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_blog.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit blog
+    </h2>
+
+    <form action="/modify_blog/<%= @the_blog.id %>"  method="post" >
+      <div>
+        <label for="blogger_id_box">
+          Blogger
+        </label>
+
+        <input type="text" id="blogger_id_box" name="query_blogger_id" value="<%= @the_blog.blogger_id %>">
+      </div>
+
+      <div>
+        <label for="book_id_box">
+          Book
+        </label>
+
+        <input type="text" id="book_id_box" name="query_book_id" value="<%= @the_blog.book_id %>">
+      </div>
+
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content"><%= @the_blog.content %></textarea>
+      </div>
+
+      <div>
+        <label for="privacy_status_box">
+          Privacy status
+        </label>
+
+        <input type="text" id="privacy_status_box" name="query_privacy_status" value="<%= @the_blog.privacy_status %>">
+      </div>
+
+      <button>
+        Update blog
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
