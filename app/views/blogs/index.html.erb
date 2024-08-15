@@ -24,14 +24,6 @@
       </div>
 
       <div>
-        <label for="book_id_box">
-          Book
-        </label>
-
-        <input type="text" id="book_id_box" name="query_book_id">
-      </div>
-
-      <div>
         <label for="content_box">
           Content
         </label>
@@ -45,6 +37,30 @@
         </label>
 
         <input type="text" id="privacy_status_box" name="query_privacy_status">
+      </div>
+
+      <div>
+        <label for="book_title_box">
+          Book title
+        </label>
+
+        <textarea id="book_title_box" name="query_book_title" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="book_author_box">
+          Book author
+        </label>
+
+        <textarea id="book_author_box" name="query_book_author" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="book_url_box">
+          Book url
+        </label>
+
+        <textarea id="book_url_box" name="query_book_url" rows="3"></textarea>
       </div>
 
       <button>
@@ -68,15 +84,23 @@
         </th>
 
         <th>
-          Book
-        </th>
-
-        <th>
           Content
         </th>
 
         <th>
           Privacy status
+        </th>
+
+        <th>
+          Book title
+        </th>
+
+        <th>
+          Book author
+        </th>
+
+        <th>
+          Book url
         </th>
 
         <th>
@@ -102,15 +126,23 @@
         </td>
 
         <td>
-          <%= a_blog.book_id %>
-        </td>
-
-        <td>
           <%= a_blog.content %>
         </td>
 
         <td>
           <%= a_blog.privacy_status %>
+        </td>
+
+        <td>
+          <%= a_blog.book_title %>
+        </td>
+
+        <td>
+          <%= a_blog.book_author %>
+        </td>
+
+        <td>
+          <%= a_blog.book_url %>
         </td>
 
         <td>
