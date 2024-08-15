@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   get("/followers/:path_id", { :controller => "followers", :action => "show" })
   
   # UPDATE
-  
   post("/modify_follower/:path_id", { :controller => "followers", :action => "update" })
   
   # DELETE
@@ -38,7 +37,6 @@ Rails.application.routes.draw do
   get("/blogs/:path_id", { :controller => "blogs", :action => "show" })
   
   # UPDATE
-  
   post("/modify_blog/:path_id", { :controller => "blogs", :action => "update" })
   
   # DELETE
@@ -52,6 +50,12 @@ Rails.application.routes.draw do
   get("/users", { :controller => "users", :action => "index" })
 
   get("/users/:path_id", { :controller => "users", :action => "show" })
+
+  # UPDATE
+  post("/modify_user/:path_id", { :controller => "users", :action => "update" })
+  
+  # DELETE
+  get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
 
   
 end
