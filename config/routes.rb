@@ -6,23 +6,6 @@ Rails.application.routes.draw do
 
   root to: "blogs#index"
 
-  # Routes for the Bookmarked book resource:
-
-  # CREATE
-  post("/insert_bookmarked_book", { :controller => "bookmarked_books", :action => "create" })
-          
-  # READ
-  get("/bookmarked_books", { :controller => "bookmarked_books", :action => "index" })
-  
-  get("/bookmarked_books/:path_id", { :controller => "bookmarked_books", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_bookmarked_book/:path_id", { :controller => "bookmarked_books", :action => "update" })
-  
-  # DELETE
-  get("/delete_bookmarked_book/:path_id", { :controller => "bookmarked_books", :action => "destroy" })
-
   #------------------------------
 
   # Routes for the Follower resource:
@@ -60,25 +43,6 @@ Rails.application.routes.draw do
   
   # DELETE
   get("/delete_blog/:path_id", { :controller => "blogs", :action => "destroy" })
-
-  #------------------------------
-
-  # Routes for the Book resource:
-
-  # CREATE
-  post("/insert_book", { :controller => "books", :action => "create" })
-          
-  # READ
-  get("/books", { :controller => "books", :action => "index" })
-  
-  get("/books/:path_id", { :controller => "books", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_book/:path_id", { :controller => "books", :action => "update" })
-  
-  # DELETE
-  get("/delete_book/:path_id", { :controller => "books", :action => "destroy" })
 
   #------------------------------
 
