@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
   def create
     the_blog = Blog.new
     the_blog.blogger_id = params.fetch("query_blogger_id")
-    the_blog.book_id = params.fetch("query_book_id")
+    the_blog.book_title = params.fetch("query_book_title")
     the_blog.content = params.fetch("query_content")
     the_blog.privacy_status = params.fetch("query_privacy_status")
 
@@ -37,7 +37,7 @@ class BlogsController < ApplicationController
     the_blog = Blog.where({ :id => the_id }).at(0)
 
     the_blog.blogger_id = params.fetch("query_blogger_id")
-    the_blog.book_id = params.fetch("query_book_id")
+    the_blog.book_title = params.fetch("query_book_title")
     the_blog.content = params.fetch("query_content")
     the_blog.privacy_status = params.fetch("query_privacy_status")
 
