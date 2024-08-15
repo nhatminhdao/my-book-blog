@@ -6,7 +6,7 @@
 
     <div>
       <div>
-        <a href="/blogs">
+        <a href="/users/<%= @the_blog.blogger_id %>">
           Go back
         </a>
       </div>
@@ -20,24 +20,38 @@
 
     <dl>
       <dt>
-        Blogger
+        Date created
       </dt>
       <dd>
-        <%= @the_blog.blogger_id %>
+        <%= @the_blog.created_at %>
       </dd>
-
+      
+      <dt>
+        Content
+      </dt>
+      <dd>
+        <%= @the_blog.content %>
+      </dd>
+      
       <dt>
         Book title
       </dt>
       <dd>
         <%= @the_blog.book_title %>
       </dd>
-
+      
       <dt>
-        Content
+        Book author
       </dt>
       <dd>
-        <%= @the_blog.content %>
+        <%= @the_blog.book_author %>
+      </dd>
+
+      <dt>
+        More info
+      </dt>
+      <dd>
+        <%= @the_blog.book_url %>
       </dd>
 
       <dt>
@@ -45,20 +59,13 @@
       </dt>
       <dd>
         <%= @the_blog.privacy_status %>
-      </dd>
+      </dd>  
 
       <dt>
-        Created at
+        Last updated
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_blog.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_blog.updated_at) %> ago
+        <%= @the_blog.updated_at %>
       </dd>
     </dl>
   </div>
@@ -75,19 +82,7 @@
 
     <form action="/modify_blog/<%= @the_blog.id %>"  method="post" >
       <div>
-        <label for="blogger_id_box">
-          Blogger
-        </label>
-
-        <input type="text" id="blogger_id_box" name="query_blogger_id" value="<%= @the_blog.blogger_id %>">
-      </div>
-
-      <div>
-        <label for="book_title_box">
-          Book title
-        </label>
-
-        <input type="text" id="book_title_box" name="query_book_title" value="<%= @the_blog.book_title %>">
+        <input type="hidden" id="blogger_id_box" name="query_blogger_id" value="<%= @the_blog.blogger_id %>">
       </div>
 
       <div>
@@ -97,6 +92,31 @@
 
         <textarea id="content_box" name="query_content"><%= @the_blog.content %></textarea>
       </div>
+
+      <div>
+        <label for="book_title_box">
+          Book title
+        </label>
+
+        <input type="text" id="book_title_box" name="query_book_title" value="<%= @the_blog.book_title %>">
+      </div>
+      
+      <div>
+        <label for="book_author_box">
+          Book author
+        </label>
+
+        <input type="text" id="book_author_box" name="query_book_author" value="<%= @the_blog.book_author %>">
+      </div>
+      
+      <div>
+        <label for="book_url_box">
+          More info
+        </label>
+
+        <input type="text" id="book_url_box" name="query_book_url" value="<%= @the_blog.book_url %>">
+      </div>
+
 
       <div>
         <label for="privacy_status_box">

@@ -38,6 +38,8 @@ class BlogsController < ApplicationController
 
     the_blog.blogger_id = params.fetch("query_blogger_id")
     the_blog.book_title = params.fetch("query_book_title")
+    the_blog.book_author = params.fetch("query_book_author")
+    the_blog.book_url = params.fetch("query_book_url")
     the_blog.content = params.fetch("query_content")
     the_blog.privacy_status = params.fetch("query_privacy_status")
 

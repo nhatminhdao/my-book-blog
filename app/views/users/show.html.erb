@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Book #<%= @the_user.id %> details
+      <%= @the_user.first_name %>'s blog
     </h1>
 
     <div>
@@ -130,3 +130,73 @@
 </div>
 
 <hr>
+
+<h1> My entries </h1>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+         <th>
+          Date
+        </th>
+
+        <th>
+          Content
+        </th>
+
+        <th>
+          Book title
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          More info
+        </th>
+        
+        <th>
+          Privacy status
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% Blog.where({:blogger_id => @the_user.id}).each do |a_blog| %>
+      <tr>
+        <td>
+          <%= a_blog.created_at %>
+        </td>
+
+        <td>
+          <%= a_blog.content%>
+        </td>
+
+        <td>
+          <%= a_blog.book_title %>
+        </td>
+
+        <td>
+          <%= a_blog.book_author %>
+        </td>
+
+        <td>
+          <a href="<%= a_blog.book_url %>">External link</a>
+        </td>
+
+        <td>
+          <%= a_blog.privacy_status %>
+        </td>
+
+        <td>
+          <a href="/blogs/<%= a_blog.id %>">
+            Edit blog
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
