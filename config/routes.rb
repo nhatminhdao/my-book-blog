@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # get "/your_first_screen" => "pages#first"
 
-  root to: "blogs#index"
+  root to: "blogs#homepage"
 
   #------------------------------
 

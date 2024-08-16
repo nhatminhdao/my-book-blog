@@ -1,4 +1,8 @@
 class BlogsController < ApplicationController
+  def homepage
+    render({ :template => "blogs/homepage" })
+  end
+
   def index
     matching_blogs = Blog.all
 
