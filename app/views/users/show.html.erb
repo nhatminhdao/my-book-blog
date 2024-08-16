@@ -1,9 +1,9 @@
 <div>
   <div>
     <div class="avatar-row">
-        <img class="avatar-image" src="<%= @the_user.avatar_url %>">
+      <img class="avatar-image" src="<%= @the_user.avatar_url %>">
       <%# if @the_user.avatar_url == nil %>
-<!--        <img class="avatar-image" src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg">-->
+      <!--        <img class="avatar-image" src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg">-->
       <%# else %>
       <%# end %>
     </div>
@@ -12,91 +12,145 @@
     </p>
     <p></p>
     <p style="text-align: center">Bio: <%= @the_user.bio %></p>
-    </div>
   </div>
-  <% if current_user.id == @the_user.id %>
-    <div>
+</div>
+<div>
+
+
+  <div>
+    <% if current_user.id == @the_user.id %>
       <div>
-        <h3>
-          Write a new blog
-        </h3>
+        <div>
+          <h3>
+            Edit my info
+          </h3>
 
-        <form action="/insert_blog" method="post">
-          <div>
-            <label for="content_box">
-              Content
-            </label>
+          <form action="/modify_user/<%= @the_user.id %>"  method="post" >
+            <div>
+              <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_user.id %>">
+            </div>
 
-            <textarea id="content_box" name="query_content" style="width: 200px; height: 30px;"></textarea>
-          </div>
-          <div>
-            <input type="hidden" name="query_blogger_id" value="<%= current_user.id %>">
-          </div>
+            <div>
+              <label for="first_name_box">
+                First name
+              </label>
 
-          <div>
-            <label for="book_title_box">
-              Book title
-            </label>
+              <input type="text" id="first_name_box" name="query_first_name" value="<%= @the_user.first_name %>">
+            </div>
 
-            <input type="text" id="book_title_box" name="query_book_title">
-          </div>
+            <div>
+              <label for="last_name_box">
+                Last name
+              </label>
 
-          <div>
-            <label for="book_author_box">
-              Book author
-            </label>
+              <input type="text" id="last_name_box" name="query_last_name" value="<%= @the_user.last_name %>">
+            </div>
 
-            <input type="text" id="book_author_box" name="query_book_author">
-          </div>
+            <div>
+              <label for="bio_box">
+                Bio
+              </label>
 
+              <input type="text" id="bio_box" name="query_bio" value="<%= @the_user.bio %>">
+            </div>
 
-          <div>
-            <!--<label for="privacy_status_box">
+            <div>
+              <label for="avatar_url_box">
+                Avatar URL
+              </label>
+
+              <input type="text" id="avatar_url_box" name="query_avatar_url" value="<%= @the_user.avatar_url %>">
+            </div>
+            <p></p>
+            <button class="btn btn-outline-dark">
+              Update user
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <p></p>
+
+      <div>
+        <div>
+          <h3>
+            Write a new blog
+          </h3>
+
+          <form action="/insert_blog" method="post">
+            <div>
+              <label for="content_box">
+                Content
+              </label>
+
+              <textarea id="content_box" name="query_content" style="width: 200px; height: 30px;"></textarea>
+            </div>
+            <div>
+              <input type="hidden" name="query_blogger_id" value="<%= current_user.id %>">
+            </div>
+
+            <div>
+              <label for="book_title_box">
+                Book title
+              </label>
+
+              <input type="text" id="book_title_box" name="query_book_title">
+            </div>
+
+            <div>
+              <label for="book_author_box">
+                Book author
+              </label>
+
+              <input type="text" id="book_author_box" name="query_book_author">
+            </div>
+
+            <div>
+              <!--<label for="privacy_status_box">
               Privacy status
             </label>-->
 
-            <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="public">
-          </div>
-          <p></p>
-          <button class="btn btn-outline-dark">
-            Create blog
-          </button>
-        </form>
+              <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="public">
+            </div>
+            <p></p>
+            <button class="btn btn-outline-dark">
+              Create blog
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  <p></p>
-  <% end %>
-  
-  <% if @the_user.blogs.count == 0 %>
-    <% if @the_user.id == current_user.id %>
-      <p>You haven't written anything.</p>
-    <% else %>
-      <p> <%= @the_user.first_name %> hasn't written anything. </p>
     <% end %>
-    
-  <% else %>
-    
-  <p></p>
-  <% @the_user.blogs.order({ :created_at => :desc }).each do |a_blog| %>
-    <div class="card" style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
-      <div class="card-body">
-        <h5 class="card-title"><%= a_blog.book_title %> by <%= a_blog.book_author %></h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary"><%= a_blog.created_at.strftime("%b %e, %Y") %></h6>
-        <p class="card-text">
-          <%= a_blog.content%>
-          <% if current_user.id == @the_user.id %>
-            <a href="/blogs/<%= a_blog.id %>">
-            Edit blog
-            </a>
-          <% end %>
-          </p>
-        <!--<a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>-->
-      </div>
-    </div>
-  <% end %>
-        
 
+    <p></p>
 
-<% end %>
+    <% if @the_user.blogs.count == 0 %>
+      <% if @the_user.id == current_user.id %>
+        <p>You haven't written anything.</p>
+      <% else %>
+        <p> <%= @the_user.first_name %> hasn't written anything. </p>
+      <% end %>
+
+    <% else %>
+
+      <p></p>
+      <% @the_user.blogs.order({ :created_at => :desc }).each do |a_blog| %>
+        <div class="card" style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
+          <div class="card-body">
+            <h5 class="card-title"><%= a_blog.book_title %> by <%= a_blog.book_author %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><%= a_blog.created_at.strftime("%b %e, %Y") %></h6>
+            <p class="card-text">
+              <%= a_blog.content%>
+              <% if current_user.id == @the_user.id %>
+                <a href="/blogs/<%= a_blog.id %>">
+                  Edit blog
+                </a>
+              <% end %>
+            </p>
+            <!--<a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>-->
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

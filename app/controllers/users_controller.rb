@@ -21,11 +21,11 @@ class UsersController < ApplicationController
     the_id = params.fetch("path_id")
     the_user = User.where({ :id => the_id }).at(0)
 
-    the_user.username = params.fetch("query_username")
+    # the_user.username = params.fetch("query_username")
     the_user.first_name = params.fetch("query_first_name")
     the_user.last_name = params.fetch("query_last_name")
     the_user.bio = params.fetch("query_bio")
-    the_user.email = params.fetch("query_email")
+    # the_user.email = params.fetch("query_email")
     the_user.avatar_url = params.fetch("query_avatar_url")
 
     if the_user.valid?

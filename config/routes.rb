@@ -52,10 +52,6 @@ Rails.application.routes.draw do
   get("/users/:path_id", { :controller => "users", :action => "show" })
 
   # UPDATE
-  post("/modify_user/:username", { :controller => "users", :action => "update" })
-  
-  # DELETE
-  get("/delete_user/:username", { :controller => "users", :action => "destroy" })
-
+  post("/modify_user/:path_id", { :controller => "users", :action => "update" })
   
 end
