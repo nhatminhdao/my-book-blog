@@ -11,7 +11,7 @@
       <%= @the_user.first_name %> <%= @the_user.last_name %>
     </p>
     <p></p>
-    <p style="text-align: center">Bio: <%= @the_user.bio %></p>
+    <p style="text-align: center"><%= @the_user.bio %></p>
   </div>
 </div>
 <div>
@@ -31,6 +31,14 @@
             </div>
 
             <div>
+              <label for="email_box">
+                First name
+              </label>
+
+              <input type="text" id="email_box" name="query_email" value="<%= @the_user.email %>">
+            </div>
+            
+            <div>
               <label for="first_name_box">
                 First name
               </label>
@@ -48,7 +56,7 @@
 
             <div>
               <label for="bio_box">
-                Bio
+                Short bio
               </label>
 
               <input type="text" id="bio_box" name="query_bio" value="<%= @the_user.bio %>">

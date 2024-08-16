@@ -10,19 +10,19 @@ Rails.application.routes.draw do
 
   # Routes for the Follower resource:
 
-  # CREATE
-  post("/insert_follower", { :controller => "followers", :action => "create" })
+  # # CREATE
+  # post("/insert_follower", { :controller => "followers", :action => "create" })
           
-  # READ
-  get("/followers", { :controller => "followers", :action => "index" })
+  # # READ
+  # get("/followers", { :controller => "followers", :action => "index" })
   
-  get("/followers/:path_id", { :controller => "followers", :action => "show" })
+  # get("/followers/:path_id", { :controller => "followers", :action => "show" })
   
-  # UPDATE
-  post("/modify_follower/:path_id", { :controller => "followers", :action => "update" })
+  # # UPDATE
+  # post("/modify_follower/:path_id", { :controller => "followers", :action => "update" })
   
-  # DELETE
-  get("/delete_follower/:path_id", { :controller => "followers", :action => "destroy" })
+  # # DELETE
+  # get("/delete_follower/:path_id", { :controller => "followers", :action => "destroy" })
 
   #------------------------------
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   post("/insert_blog", { :controller => "blogs", :action => "create" })
           
   # READ
-  get("/blogs", { :controller => "blogs", :action => "index" })
+  # get("/blogs", { :controller => "blogs", :action => "index" })
   
   get("/blogs/:path_id", { :controller => "blogs", :action => "show" })
   
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   devise_for :users
  
   # READ
-  get("/users", { :controller => "users", :action => "index" })
+  # get("/users", { :controller => "users", :action => "index" })
 
   get("/users/:path_id", { :controller => "users", :action => "show" })
 
