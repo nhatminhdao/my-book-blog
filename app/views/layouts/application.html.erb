@@ -22,17 +22,53 @@
         min-height:100%;
       }
 
+      body{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background: linear-gradient(360deg, #e8e8e4, #ebeae4, #edece4, #f0eee4, #f4f0e4, #f7f2e4, #fbf3e4, #fff5e4);
+        min-height:100%;
+        color: #565655;
+        font-family: "Overpass Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-size: 15px;    
+      
+      }
+
     </style>
   </head>
 
   <body>
     <nav>
-    <a href="/users">Users</a>
-    <a href="/blogs">Blogs</a>
+    <a href="/">Home</a>
+    <% if current_user != nil %>
+      <a href="/users/sign_out">Sign out</a>
+      <a href="/users/edit">Edit profile</a>
+    <% else %>
+      <a href="/users/sign_up">Sign up</a>
+      <a href="/users/sign_in">Sign in</a>
+    <% end %>
+
+<!--    <a href="/users">Users</a>
+    <a href="/blogs">Blogs</a>-->
     </nav>
     
     <p class="notice"><%= notice %></p>
    	<p class="alert"><%= alert %></p>
+
+    <% if notice.present? %>
+      <div style="color: green">
+        <%= notice %>
+      </div>
+    <% end %>
+
+
+    <% if alert.present? %>
+      <div style="color: red">
+        <%= alert %>
+      </div>
+    <% end %>
+
 
     <%= yield %>
   </body>
