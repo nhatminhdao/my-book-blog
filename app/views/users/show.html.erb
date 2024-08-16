@@ -17,7 +17,7 @@
     <div>
       <div>
         <h2>
-          Add a new blog
+          Write a new blog
         </h2>
 
         <form action="/insert_blog" method="post">
@@ -57,7 +57,7 @@
             <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="public">
           </div>
           <p></p>
-          <button class="btn btn-secondary btn-sm">
+          <button class="btn btn-outline-dark">
             Create blog
           </button>
         </form>
@@ -109,7 +109,7 @@
           <% @the_user.blogs.each do |a_blog| %>
           <tr>
             <td>
-              <%= a_blog.created_at %>
+              <%= a_blog.created_at.strftime("%b %e, %Y") %>
             </td>
 
             <td>

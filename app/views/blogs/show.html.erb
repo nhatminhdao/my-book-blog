@@ -50,14 +50,14 @@
           Date created
         </dt>
         <dd>
-          <%= @the_blog.created_at %>
+          <%= @the_blog.created_at.strftime("%b %e, %Y") %>
         </dd>
 
         <dt>
           Last updated
         </dt>
         <dd>
-          <%= @the_blog.updated_at %>
+          <%= @the_blog.updated_at.strftime("%b %e, %Y") %>
         </dd>
       </dl>
     </div>
@@ -118,7 +118,7 @@
           <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="<%= @the_blog.privacy_status %>">
         </div>
         <p></p>
-        <button class="btn btn-secondary btn-sm">
+        <button class="btn btn-outline-dark">
           Update blog
         </button>
       </form>
