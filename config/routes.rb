@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   # READ
   get("/users", { :controller => "users", :action => "index" })
 
-  get("/users/:username", { :controller => "users", :action => "show" })
+  get("/users/:path_id", { :controller => "users", :action => "show" })
 
   # UPDATE
   post("/modify_user/:username", { :controller => "users", :action => "update" })

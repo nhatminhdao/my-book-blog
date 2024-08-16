@@ -26,9 +26,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates(:username, uniqueness: true, presence: true, length: { minimum: 6 })
-  validates(:password, presence: true, length: { in: 6..20 })
-  validates(:email, uniqueness: true, presence: true)
   
   has_many(:blogs,
   class_name: "Blog",

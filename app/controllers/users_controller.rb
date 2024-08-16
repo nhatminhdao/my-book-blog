@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    the_username = params.fetch("username")
+    the_id = params.fetch("path_id")
 
-    matching_users = User.where({ :username => the_username })
+    matching_users = User.where({ :id => the_id })
 
     @the_user = matching_users.at(0)
 
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    the_username = params.fetch("username")
-    the_user = User.where({ :username => the_username }).at(0)
+    the_id = params.fetch("path_id")
+    the_user = User.where({ :id => the_id }).at(0)
 
     the_user.username = params.fetch("query_username")
     the_user.first_name = params.fetch("query_first_name")
@@ -30,9 +30,9 @@ class UsersController < ApplicationController
 
     if the_user.valid?
       the_user.save
-      redirect_to("/users/#{the_user.username}", { :notice => "User updated successfully."} )
+      redirect_to("/users/#{the_user.id}", { :notice => "User updated successfully."} )
     else
-      redirect_to("/users/#{the_user.username}", { :alert => the_user.errors.full_messages.to_sentence })
+      redirect_to("/users/#{the_user.id}", { :alert => the_user.errors.full_messages.to_sentence })
     end
   end
 
