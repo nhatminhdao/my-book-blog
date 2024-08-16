@@ -49,13 +49,13 @@ Rails.application.routes.draw do
   # READ
   get("/users", { :controller => "users", :action => "index" })
 
-  get("/users/:path_id", { :controller => "users", :action => "show" })
+  get("/users/:username", { :controller => "users", :action => "show" })
 
   # UPDATE
-  post("/modify_user/:path_id", { :controller => "users", :action => "update" })
+  post("/modify_user/:username", { :controller => "users", :action => "update" })
   
   # DELETE
-  get("/delete_user/:path_id", { :controller => "users", :action => "destroy" })
+  get("/delete_user/:username", { :controller => "users", :action => "destroy" })
 
   
 end
