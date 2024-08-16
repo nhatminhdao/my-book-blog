@@ -1,28 +1,30 @@
-<h2>Edit profile</h2>
+<h2>Change password</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
   
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
+    <%#= f.input :email, required: true, autofocus: true %>
+<!---->
+    <%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<!--      <p>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></p>-->
+    <%# end %>
+    <p></p>
     <%= f.input :password,
-                hint: "(leave blank if you don't want to change it)",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <p></p>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <p></p>
     <%= f.input :current_password,
                 hint: "(field required to change password)",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
   <p></p>
+
   <div class="form-actions">
     <%= f.button :submit, "Change password" %>
   </div>
@@ -31,11 +33,15 @@
 
 <hr>
 <h2>Delete account</h2>
-<p>Click below to delete your account permanently</p>
+<p>Click below to delete your account permanently:</p>
 <div><%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <p></p>
-<%= link_to "Back to my blog", :back %>
+<div>
+  <a href="/users/<%= current_user.id %>">
+    Back to my blog
+  </a>
+</div>
 
 <!--<div>
   <div>

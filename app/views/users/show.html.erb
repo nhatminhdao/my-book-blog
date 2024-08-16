@@ -54,6 +54,61 @@
   </div>
 </div>-->
 
+
+<div>
+  <div>
+    <h2>
+      Add a new blog
+    </h2>
+
+    <form action="/insert_blog" method="post">
+      <div>
+        <input type="hidden" name="query_blogger_id" value="<%= current_user.id %>">
+      </div>
+
+      <div>
+        <label for="book_title_box">
+          Book title
+        </label>
+
+        <input type="text" id="book_title_box" name="query_book_title">
+      </div>
+
+      <div>
+        <label for="book_author_box">
+          Book author
+        </label>
+
+        <input type="text" id="book_author_box" name="query_book_author">
+      </div>
+
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <textarea id="content_box" name="query_content" rows="3"></textarea>
+      </div>
+
+      <div>
+        <!--<label for="privacy_status_box">
+          Privacy status
+        </label>-->
+
+        <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="public">
+      </div>
+
+      <button>
+        Create blog
+      </button>
+    </form>
+  </div>
+</div>
+
+<p></p>
+<hr>
+<p></p>
+
 <div>
   <div>
     <table border="1">
@@ -74,13 +129,13 @@
           Author
         </th>
 
-        <th>
+        <!--<th>
           More info
         </th>
         
         <th>
           Privacy status
-        </th>
+        </th>-->
 
         <th>
         </th>
@@ -104,13 +159,13 @@
           <%= a_blog.book_author %>
         </td>
 
-        <td>
-          <a href="<%= a_blog.book_url %>">External link</a>
+        <!--<td>
+          <a href="<%#= a_blog.book_url %>">External link</a>
         </td>
 
         <td>
-          <%= a_blog.privacy_status %>
-        </td>
+          <%#= a_blog.privacy_status %>-->
+<!--        </td>-->
 
         <td>
           <a href="/blogs/<%= a_blog.id %>">

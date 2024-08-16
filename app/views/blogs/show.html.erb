@@ -1,13 +1,13 @@
 <div>
   <div>
-    <h1>
-      Blog #<%= @the_blog.id %> details
-    </h1>
+    <h2>
+      Blog details
+    </h2>
 
     <div>
       <div>
-        <a href="/users/<%= @the_blog.blogger %>">
-          Go back
+        <a href="/users/<%= current_user.id %>">
+          Back to my blog
         </a>
       </div>
 

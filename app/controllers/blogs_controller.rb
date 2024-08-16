@@ -30,9 +30,9 @@ class BlogsController < ApplicationController
 
     if the_blog.valid?
       the_blog.save
-      redirect_to("/blogs", { :notice => "Blog created successfully." })
+      redirect_to("/users/#{current_user.id}", { :notice => "Blog created successfully." })
     else
-      redirect_to("/blogs", { :alert => the_blog.errors.full_messages.to_sentence })
+      redirect_to("/users/#{current_user.id}", { :alert => the_blog.errors.full_messages.to_sentence })
     end
   end
 
