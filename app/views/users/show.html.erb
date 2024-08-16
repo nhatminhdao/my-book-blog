@@ -1,72 +1,59 @@
 <div>
   <div>
-    <h1>
-      <%= @the_user.first_name %>'s blog
-    </h1>
-
-    <div>
-      <div>
-        <a href="/users">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_user/<%= @the_user.username %>">
-          Delete user
-        </a>
-      </div>
+    <div class="avatar-row">
+      <img class="avatar-image" src="<%= @the_user.avatar_url %>">
     </div>
+    <p class="name-row">
+      <%= @the_user.first_name %> <%= @the_user.last_name %>
+    </p>
+    <p style="text-align: center">Bio: <%= @the_user.bio %></p>
 
-    <dl>
+    <!--<dl>
       <dt>
         Username
       </dt>
       <dd>
-        <%= @the_user.username %>
-      </dd>
+        <%#= @the_user.username %>-->
+<!--      </dd>
 
       <dt>
         Name
       </dt>
       <dd>
-        <%= @the_user.first_name %> <%= @the_user.last_name %>
-      </dd>
+        <%#= @the_user.first_name %> <%= @the_user.last_name %>-->
+<!--      </dd>
 
       <dt>
         Bio
       </dt>
       <dd>
-        <%= @the_user.bio %>
-      </dd>
+        <%#= @the_user.bio %>-->
+<!--      </dd>
 
       <dt>
         Avatar
       </dt>
       <dd>
-        <img src="<%= @the_user.avatar_url %>" width="100px" height="100px" object-fit= "cover">
+        <img src="<%#= @the_user.avatar_url %>" width="100px" height="100px" object-fit= "cover">
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_user.created_at) %> ago
-      </dd>
+        <%#= time_ago_in_words(@the_user.created_at) %> ago-->
+<!--      </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_user.updated_at) %> ago
-      </dd>
+        <%#= time_ago_in_words(@the_user.updated_at) %> ago-->
+<!--      </dd>
     </dl>
   </div>
-</div>
+</div>-->
 
-<hr>
-
-<h1> My entries </h1>
 <div>
   <div>
     <table border="1">
