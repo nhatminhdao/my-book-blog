@@ -29,6 +29,12 @@
     <%= f.button :submit, "Change password" %>
   </div>
 <% end %>
+<p></p>
+<div>
+  <a href="/users/<%= current_user.id %>">
+    Back to my blog
+  </a>
+</div>
 <h1></h1>
 
 <hr>
@@ -36,12 +42,6 @@
 <p>Click below to delete your account permanently:</p>
 <div><%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<p></p>
-<div>
-  <a href="/users/<%= current_user.id %>">
-    Back to my blog
-  </a>
-</div>
 
 <!--<div>
   <div>

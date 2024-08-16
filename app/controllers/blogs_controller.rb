@@ -25,12 +25,13 @@ class BlogsController < ApplicationController
     the_blog = Blog.new
     the_blog.blogger_id = params.fetch("query_blogger_id")
     the_blog.book_title = params.fetch("query_book_title")
+    the_blog.book_author = params.fetch("query_book_author")
     the_blog.content = params.fetch("query_content")
     the_blog.privacy_status = params.fetch("query_privacy_status")
 
     if the_blog.valid?
       the_blog.save
-      redirect_to("/users/#{current_user.id}", { :notice => "Blog created successfully." })
+      redirect_to("/blogs/#{the_blog.id}", { :notice => "Blog created successfully." })
     else
       redirect_to("/users/#{current_user.id}", { :alert => the_blog.errors.full_messages.to_sentence })
     end
@@ -61,6 +62,6 @@ class BlogsController < ApplicationController
 
     the_blog.destroy
 
-    redirect_to("/blogs", { :notice => "Blog deleted successfully."} )
+    redirect_to("/users/#{current_user.id}", { :notice => "Blog deleted successfully."} )
   end
 end

@@ -4,28 +4,8 @@
       Blog details
     </h2>
 
-    <div>
-      <div>
-        <a href="/users/<%= current_user.id %>">
-          Back to my blog
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_blog/<%= @the_blog.id %>">
-          Delete blog
-        </a>
-      </div>
-    </div>
 
     <dl>
-      <dt>
-        Date created
-      </dt>
-      <dd>
-        <%= @the_blog.created_at %>
-      </dd>
-      
       <dt>
         Content
       </dt>
@@ -47,19 +27,26 @@
         <%= @the_blog.book_author %>
       </dd>
 
-      <dt>
+      <!--<dt>
         More info
       </dt>
       <dd>
-        <%= @the_blog.book_url %>
-      </dd>
+        <%#= @the_blog.book_url %>-->
+<!--      </dd>
 
       <dt>
         Privacy status
       </dt>
       <dd>
-        <%= @the_blog.privacy_status %>
-      </dd>  
+        <%#= @the_blog.privacy_status %>-->
+<!--      </dd>  -->
+
+      <dt>
+        Date created
+      </dt>
+      <dd>
+        <%= @the_blog.created_at %>
+      </dd>
 
       <dt>
         Last updated
@@ -110,27 +97,44 @@
       </div>
       
       <div>
-        <label for="book_url_box">
+        <!--<label for="book_url_box">
           More info
-        </label>
+        </label>-->
 
-        <input type="text" id="book_url_box" name="query_book_url" value="<%= @the_blog.book_url %>">
+        <input type="hidden" id="book_url_box" name="query_book_url" value="<%= @the_blog.book_url %>">
       </div>
 
 
       <div>
-        <label for="privacy_status_box">
+        <!--<label for="privacy_status_box">
           Privacy status
-        </label>
+        </label>-->
 
-        <input type="text" id="privacy_status_box" name="query_privacy_status" value="<%= @the_blog.privacy_status %>">
+        <input type="hidden" id="privacy_status_box" name="query_privacy_status" value="<%= @the_blog.privacy_status %>">
       </div>
-
+      <p></p>
       <button>
         Update blog
       </button>
     </form>
   </div>
+  <p></p>
+  <div>
+    <a href="/users/<%= current_user.id %>">
+      Back to my blog
+    </a>
+  </div>
 </div>
-
+<p></p>
 <hr>
+
+<div>
+  <h2>Delete blog</h2>
+  <div>
+    <p>
+      Click 
+      <a href="/delete_blog/<%= @the_blog.id %>">here</a>
+    to delete this blog entry.
+    </p>
+  </div>
+</div>
