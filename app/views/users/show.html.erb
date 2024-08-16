@@ -1,24 +1,25 @@
 <div>
   <div>
     <div class="avatar-row">
+        <img class="avatar-image" src="<%= @the_user.avatar_url %>">
       <%# if @the_user.avatar_url == nil %>
 <!--        <img class="avatar-image" src="https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1114445501.jpg">-->
       <%# else %>
-        <img class="avatar-image" src="<%= @the_user.avatar_url %>">
       <%# end %>
     </div>
     <p class="name-row">
       <%= @the_user.first_name %> <%= @the_user.last_name %>
     </p>
+    <p></p>
     <p style="text-align: center">Bio: <%= @the_user.bio %></p>
     </div>
   </div>
   <% if current_user.id == @the_user.id %>
     <div>
       <div>
-        <h2>
+        <h3>
           Write a new blog
-        </h2>
+        </h3>
 
         <form action="/insert_blog" method="post">
           <div>
@@ -75,72 +76,27 @@
     
   <% else %>
     
-    <p></p>
-    <div>
-      <div>
-        <table border="1">
-          <tr>
-            <th>
-              Date
-            </th>
-
-            <th>
-              Content
-            </th>
-
-            <th>
-              Book title
-            </th>
-
-            <th>
-              Author
-            </th>
-
-            <!--<th>
-              More info
-            </th>
-            
-            <th>
-              Privacy status
-            </th>-->
-
-          </tr>
-
-          <% @the_user.blogs.each do |a_blog| %>
-          <tr>
-            <td>
-              <%= a_blog.created_at.strftime("%b %e, %Y") %>
-            </td>
-
-            <td>
-              <%= a_blog.content%>
-              <% if current_user.id == @the_user.id %>
-                <a href="/blogs/<%= a_blog.id %>">
-                Edit blog
-                </a>
-              <% end %>
-            </td>
-
-            <td>
-              <%= a_blog.book_title %>
-            </td>
-
-            <td>
-              <%= a_blog.book_author %>
-            </td>
-
-            <!--<td>
-              <a href="<%#= a_blog.book_url %>">External link</a>
-            </td>
-
-            <td>
-              <%#= a_blog.privacy_status %>-->
-    <!--        </td>-->
-
-          </tr>
+  <p></p>
+  <% @the_user.blogs.order({ :created_at => :desc }).each do |a_blog| %>
+    <div class="card" style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
+      <div class="card-body">
+        <h5 class="card-title"><%= a_blog.book_title %> by <%= a_blog.book_author %></h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary"><%= a_blog.created_at.strftime("%b %e, %Y") %></h6>
+        <p class="card-text">
+          <%= a_blog.content%>
+          <% if current_user.id == @the_user.id %>
+            <a href="/blogs/<%= a_blog.id %>">
+            Edit blog
+            </a>
           <% end %>
-        </table>
+          </p>
+        <!--<a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>-->
       </div>
     </div>
   <% end %>
+        
+
+
+<% end %>
 </div>
