@@ -27,8 +27,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  validates :username, uniqueness: true
+
   has_many(:blogs,
   class_name: "Blog",
   foreign_key: "blogger_id"
   )
+
+  def self.ransackable_attributes(auth_object = nil)
+    # Let's allow filtering by username; but no others
+    ["username"]
+  end
 end

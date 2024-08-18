@@ -1,4 +1,16 @@
 <h1> List of users </h1>
+
+<%= search_form_for @q do |f| %>
+  <div>
+    <%= f.label :username_cont, "Search by username" %>
+    <%= f.text_field :username_cont %>
+  </div>
+  <div>
+  <%= f.submit :class => "btn btn-outline-dark btn-sm" %>
+  </div>
+  
+<% end %>
+
 <div>
   <div>
     <table border="1">
@@ -43,7 +55,7 @@
         </th>
       </tr>
 
-      <% @list_of_users.each do |a_user| %>
+      <% User.all.order({ :created_at => :desc }).each do |a_user| %>
       <tr>
         <td>
           <%= a_user.id %>
