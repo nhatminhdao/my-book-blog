@@ -28,15 +28,23 @@ class UsersController < ApplicationController
     the_user.avatar_url = params.fetch("query_avatar_url")
  
     if the_user.valid?
-      if User.where({ :username => the_user.username }).first == nil
         the_user.save
         redirect_to("/users/#{the_user.id}", { :notice => "User updated successfully."} )
-      else
-        redirect_to("/users/#{the_user.id}", { :alert => "Username has already been taken."} )
-      end
     else
       redirect_to("/users/#{the_user.id}", { :alert => the_user.errors.full_messages.to_sentence + "."})
     end
+    
+    # if the_user.valid?
+    #   if User.where({ :username => the_user.username }).first == nil && the_user.username != current_user.username
+    #     the_user.save
+    #     redirect_to("/users/#{the_user.id}", { :notice => "User updated successfully."} )
+    #   else
+    #     redirect_to("/users/#{the_user.id}", { :alert => "Username has already been taken."} )
+    #   end
+    # else
+    #   redirect_to("/users/#{the_user.id}", { :alert => the_user.errors.full_messages.to_sentence + "."})
+    # end
+
   end
 
   # def destroy
