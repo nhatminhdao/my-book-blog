@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_blog/:path_id", { :controller => "blogs", :action => "destroy" })
 
-  #------------------------------
+  #------------------------------User
 
   devise_for :users
  
